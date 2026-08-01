@@ -15,6 +15,7 @@
 .command-hud{position:absolute;left:20px;bottom:114px;width:280px;padding:10px 18px;background:linear-gradient(135deg,#061526ed,#0b2b40dc);border:1px solid #79c5cc;box-shadow:5px 5px 0 #122e45;clip-path:polygon(5% 0,100% 0,95% 100%,0 100%)}.command-hud small{display:block;color:#5ff0d5;letter-spacing:.2em;margin-bottom:7px}.command-hud div{display:flex;flex-wrap:wrap;gap:7px 13px;font-size:11px;letter-spacing:.08em;color:#c7e5e8}.command-hud span{display:flex;align-items:center;gap:4px}.command-hud kbd{min-width:21px;padding:3px 5px;text-align:center;background:#102f43;border:1px solid #b8dfe1;border-bottom:3px solid #507787;color:#fff;font:700 10px inherit}.mobile-command{display:none!important}
 @media(max-width:900px){.garage-body{grid-template-columns:1fr}.boat-preview{position:relative}.garage-body .boat-grid{grid-template-columns:repeat(2,1fr)}}
 .mobile-controls{display:none;position:fixed;left:0;right:0;bottom:max(15px,env(safe-area-inset-bottom));z-index:15;justify-content:space-between;align-items:end;padding:0 18px;pointer-events:none}.mobile-controls button{pointer-events:auto;width:82px;height:82px;margin:0;border-radius:50%;clip-path:none;padding:0;background:#09283edb;color:#eaffff;border:2px solid #67ead5;box-shadow:0 5px 0 #04121f,0 0 20px #17cdb85c;font-size:37px;touch-action:none;user-select:none;-webkit-user-select:none}.mobile-controls button:active,.mobile-controls button.pressed{transform:translateY(4px);box-shadow:0 1px 0 #04121f;background:#4de6cb;color:#062033}.mobile-controls .touch-turbo{width:70px;height:70px;background:#49315fdd;border-color:#fff36d;color:#fff36d;font-size:27px}.mobile-controls .touch-turbo small{display:block;font-size:10px;letter-spacing:.08em}
+.mobile-controls .touch-pause{position:fixed;right:10px;top:calc(112px + env(safe-area-inset-top));width:46px;height:46px;background:#071b2deb;border-color:#b9f8ee;border-radius:10px;font-size:20px;line-height:15px;box-shadow:3px 3px 0 #07111d,0 0 14px #1bd9c358}.mobile-controls .touch-pause small{display:block;font-size:7px;letter-spacing:.05em}
 @media(max-width:760px),(pointer:coarse){.mobile-controls:not(.hidden){display:flex}.turbo{bottom:112px;left:8px;transform:scale(.62);transform-origin:bottom left}.command-hud{bottom:174px;left:8px;transform:scale(.62);transform-origin:bottom left}.desktop-command{display:none!important}.mobile-command{display:flex!important}.speed{bottom:112px;right:8px;transform:scale(.62);transform-origin:bottom right}.draft-hud{bottom:120px;transform:translateX(-50%) scale(.7)}.checkpoint-hud{left:18px;top:105px;transform:scale(.75);transform-origin:top left}.coin-hud{left:18px;top:75px;transform:scale(.75);transform-origin:top left}.race-card{transform:scale(.65);transform-origin:top left;left:8px;top:8px}.mini{transform:scale(.58);transform-origin:top right;right:8px;top:8px}.panel.main-panel{max-height:96vh;overflow:auto}.settings-row{flex-wrap:wrap}.controls{font-size:12px}}
 @media(max-width:600px){
   .panel.garage,.panel.upgrades{box-sizing:border-box;left:8px;right:8px;top:8px;bottom:8px;transform:none;width:auto;max-width:none;max-height:none;padding:16px 14px calc(16px + env(safe-area-inset-bottom));overflow-x:hidden;overflow-y:auto;clip-path:none;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
@@ -35,4 +36,19 @@
   .garage-body{gap:12px}
   .garage-body .boat-grid{grid-template-columns:1fr;gap:10px}
   .boat-preview canvas{height:210px}
+}
+@media(max-width:600px),(pointer:coarse){
+  .mobile-controls{padding:0 14px;bottom:max(12px,env(safe-area-inset-bottom))}
+  .mobile-controls button{width:66px;height:66px;font-size:29px}
+  .mobile-controls .touch-turbo{width:60px;height:60px;font-size:23px}
+  .race-card{left:6px;top:6px;transform:scale(.52);transform-origin:top left}
+  .mini{right:6px;top:6px;transform:scale(.47);transform-origin:top right}
+  .coin-hud{left:8px;top:69px;transform:scale(.62);transform-origin:top left}
+  .checkpoint-hud{left:8px;top:104px;transform:scale(.62);transform-origin:top left}
+  .mobile-controls .touch-pause{right:8px;top:calc(91px + env(safe-area-inset-top));width:42px;height:42px;font-size:18px}
+  .turbo{left:7px;bottom:88px;width:210px;transform:scale(.55);transform-origin:bottom left}
+  .speed{right:7px;bottom:88px;width:170px;height:96px;transform:scale(.55);transform-origin:bottom right}
+  .speed strong{font-size:58px}
+  .command-hud{left:50%;bottom:143px;width:250px;transform:translateX(-50%) scale(.68);transform-origin:bottom center}
+  .draft-hud{bottom:190px;transform:translateX(-50%) scale(.62)}
 }

@@ -42,7 +42,12 @@
     const fx = Math.sin(current.a), fz = Math.cos(current.a), along = dx * fx + dz * fz;
     const side = dx * fz - dz * fx, aligned = Math.max(0, Math.cos(racer.a - current.a));
     const inside = Math.abs(along) <= current.length / 2 && Math.abs(side) <= current.width;
-    return { inside, aligned, boost: inside ? current.strength * (0.35 + aligned * 0.65) : 0, lateral: inside ? -side * 0.08 : 0 };
+    return { inside, aligned, boost: inside ? current.strength * (0.5 + aligned * 0.75) : 0, lateral: inside ? -side * 0.08 : 0 };
   }
-  return Object.freeze({ profile, advance, collisionSpeed, boatCollision, windCurrent });
+  function applyWindBoost(speed, baseMaximum, flow, dt, turboBonus = 0) {
+    if (!flow?.inside) return { speed, boost: 0 };
+    const boost = flow.boost * (0.25 + flow.aligned * 0.75);
+    return { speed: Math.min(baseMaximum + 46 + turboBonus, speed + boost * Math.max(0, dt) * 2.4), boost };
+  }
+  return Object.freeze({ profile, advance, collisionSpeed, boatCollision, windCurrent, applyWindBoost });
 });

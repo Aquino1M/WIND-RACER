@@ -1,0 +1,27 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wind Racer — Regata 3D</title><link rel="stylesheet" href="style.css"></head><body>
+<canvas id="game"></canvas>
+<div id="menu" class="panel main-panel">
+  <div class="menu-top"><div><p class="eyebrow">REGATA ARCADE 3D</p><h1>WIND<br><span>RACER</span></h1></div><div class="wallet">MOEDAS <b id="menuCoins">0</b> 🪙</div></div>
+  <p class="subtitle">Veleje, colete moedas e conquiste barcos lendários.</p>
+  <div class="player-row"><input id="nickname" maxlength="16" placeholder="SEU NICKNAME"><div class="mode-switch"><button id="soloMode" class="mode active">SOLO</button><button id="multiMode" class="mode">MULTIPLAYER</button></div></div>
+  <div id="multiBox" class="multi-box hidden"><div class="net-actions"><button id="createRoom">CRIAR SALA</button><span>OU</span><input id="roomCode" maxlength="8" placeholder="CÓDIGO"><button id="joinRoom" class="secondary">ENTRAR</button></div><p id="netStatus">Crie uma sala ou digite o código de um amigo.</p><div id="playerList"></div></div>
+  <div class="selected-boat"><small>BARCO SELECIONADO</small><strong id="selectedName">VENTO</strong><div id="selectedStats"></div></div>
+  <div class="menu-actions"><button id="start">INICIAR CORRIDA</button><button id="openGarage" class="secondary">GARAGEM & LOJA</button><button id="openUpgrades" class="secondary">UPGRADES</button></div>
+  <div class="settings-row"><label>VOLTAS <select id="lapSelect"><option value="1">1</option><option value="3" selected>3</option><option value="5">5</option><option value="10">10</option></select></label><label>GRÁFICOS <select id="quality"><option value="low">LEVE</option><option value="medium">MÉDIO</option><option value="high">ALTO</option></select></label><button id="soundToggle" class="tiny">🔊 SOM</button></div>
+  <div class="controls"><b>WASD / SETAS</b> pilotar e dar ré <i></i><b>ESPAÇO</b> turbo <i></i><b>ESC</b> pausar</div>
+</div>
+<div id="garage" class="panel garage hidden"><div class="garage-head"><div><p class="eyebrow">MARINA</p><h2>GARAGEM & LOJA</h2></div><div class="wallet">SALDO <b id="shopCoins">0</b> 🪙</div></div><div class="garage-body"><div id="boatGrid" class="boat-grid"></div><aside class="boat-preview"><canvas id="boatPreview"></canvas><h3 id="previewName">VENTO</h3><p>ARRASTE PARA GIRAR</p><h4>SKINS & VELAS</h4><div id="skinGrid" class="skin-grid"></div></aside></div><button id="closeGarage" class="secondary">VOLTAR</button></div>
+<div id="upgrades" class="panel upgrades hidden"><div class="garage-head"><div><p class="eyebrow">OFICINA NAVAL</p><h2>UPGRADES</h2></div><div class="wallet">SALDO <b id="upgradeCoins">0</b> 🪙</div></div><p class="upgrade-boat" id="upgradeBoatName"></p><div id="upgradeGrid" class="upgrade-grid"></div><button id="closeUpgrades" class="secondary">VOLTAR</button></div>
+<div id="countdown"></div>
+<div id="hud" class="hidden">
+  <section class="race-card"><strong id="position">4º</strong><div><small>VOLTA</small><b id="lap">1 / 3</b><em id="time">00:00.0</em></div></section>
+  <section class="coin-hud">🪙 <b id="raceCoins">0</b></section>
+  <section class="checkpoint-hud">CHECKPOINT <b id="checkpoint">1 / 11</b></section>
+  <section id="draftHud" class="draft-hud">VÁCUO <i></i><span>ENTRE NA ESTEIRA</span></section>
+  <section class="mini"><canvas id="map" width="180" height="130"></canvas><small>PERCURSO</small></section><section class="rank" id="rank"></section>
+  <section class="turbo"><small>TURBO — ESPAÇO <b id="regenStatus"></b></small><div><i></i><i></i><i></i></div></section>
+  <section class="speed"><small>VELOCIDADE</small><strong id="speed">0</strong><span>KM/H</span></section>
+</div>
+<div id="pause" class="panel pause hidden"><p class="eyebrow">CORRIDA PAUSADA</p><h2>PAUSADO</h2><button id="resume">CONTINUAR</button><button id="quit" class="secondary">VOLTAR AO MENU</button></div>
+<div id="result" class="panel hidden"><p class="eyebrow">REGATA CONCLUÍDA</p><h2 id="resultTitle">1º LUGAR</h2><p id="resultTime"></p><p class="reward" id="resultCoins"></p><button id="again">CORRER NOVAMENTE</button><button id="resultMenu" class="secondary">MENU</button></div>
+<script src="vendor/three.global.min.js"></script><script src="vendor/peerjs.min.js"></script><script src="game.js"></script></body></html>

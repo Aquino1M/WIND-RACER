@@ -8,9 +8,9 @@
   <div class="selected-boat"><small>BARCO SELECIONADO</small><strong id="selectedName">VENTO</strong><div id="selectedStats"></div></div>
   <div class="menu-actions"><button id="start">INICIAR CORRIDA</button><button id="openGarage" class="secondary">GARAGEM & LOJA</button><button id="openUpgrades" class="secondary">UPGRADES</button></div>
   <div class="settings-row"><label>VOLTAS <select id="lapSelect"><option value="1">1</option><option value="3" selected>3</option><option value="5">5</option><option value="10">10</option></select></label><label>GRÁFICOS <select id="quality"><option value="low">LEVE</option><option value="medium">MÉDIO</option><option value="high">ALTO</option></select></label><button id="soundToggle" class="tiny">🔊 SOM</button></div>
-  <div class="controls"><b>WASD / SETAS</b> pilotar e dar ré <i></i><b>ESPAÇO</b> turbo <i></i><b>ESC</b> pausar</div>
+  <div class="controls"><span class="desktop-menu-command"><b>WASD / SETAS</b> pilotar e dar ré <i></i><b>ESPAÇO</b> turbo <i></i><b>ESC</b> pausar</span><span class="mobile-menu-command"><b>BOTÕES NA TELA</b> virar <i></i><b>AUTO ACELERA</b> <i></i><b>⚡ TURBO</b></span></div>
 </div>
-<div id="garage" class="panel garage hidden"><div class="garage-head"><div><p class="eyebrow">MARINA</p><h2>GARAGEM & LOJA</h2></div><div class="wallet">SALDO <b id="shopCoins">0</b> 🪙</div></div><div class="garage-body"><div id="boatGrid" class="boat-grid"></div><aside class="boat-preview"><canvas id="boatPreview"></canvas><h3 id="previewName">VENTO</h3><p>ARRASTE PARA GIRAR</p><h4>SKINS & VELAS</h4><div id="skinGrid" class="skin-grid"></div></aside></div><button id="closeGarage" class="secondary">VOLTAR</button></div>
+<div id="garage" class="panel garage hidden"><div class="garage-head"><div><p class="eyebrow">MARINA</p><h2>GARAGEM & LOJA</h2></div><div class="wallet">SALDO <b id="shopCoins">0</b> 🪙</div></div><div class="garage-body"><div id="boatGrid" class="boat-grid"></div><aside class="boat-preview"><canvas id="boatPreview"></canvas><h3 id="previewName">VENTO</h3><p>ARRASTE PARA GIRAR</p><h4>SKINS & VELAS</h4><div id="skinGrid" class="skin-grid"></div><button id="confirmSkin" class="confirm-skin">CONFIRMAR SKIN</button></aside></div><button id="closeGarage" class="secondary">VOLTAR</button></div>
 <div id="upgrades" class="panel upgrades hidden"><div class="garage-head"><div><p class="eyebrow">OFICINA NAVAL</p><h2>UPGRADES</h2></div><div class="wallet">SALDO <b id="upgradeCoins">0</b> 🪙</div></div><p class="upgrade-boat" id="upgradeBoatName"></p><div id="upgradeGrid" class="upgrade-grid"></div><button id="closeUpgrades" class="secondary">VOLTAR</button></div>
 <div id="countdown"></div>
 <div id="hud" class="hidden">
@@ -19,7 +19,8 @@
   <section class="checkpoint-hud">CHECKPOINT <b id="checkpoint">1 / 11</b></section>
   <section id="draftHud" class="draft-hud">VÁCUO <i></i><span>ENTRE NA ESTEIRA</span></section>
   <section class="mini"><canvas id="map" width="180" height="130"></canvas><small>PERCURSO</small></section><section class="rank" id="rank"></section>
-  <section class="command-hud"><small>COMANDOS</small><div><span class="desktop-command"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> MOVER / RÉ</span><span class="mobile-command">◀ ▶ VIRAR · AUTO ACELERA</span><span><kbd>ESPAÇO</kbd> TURBO</span></div></section>
+  <section class="gps-hud"><span id="gpsArrow">▲</span><small>PRÓXIMO CHECKPOINT</small></section>
+  <section class="command-hud"><small>COMANDOS</small><div><span class="desktop-command"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> MOVER / RÉ</span><span class="desktop-command"><kbd>ESPAÇO</kbd> TURBO</span><span class="mobile-command"><b>◀ ▶</b> BOTÕES LATERAIS</span><span class="mobile-command">AUTO ACELERA · <b>⚡</b> BOTÃO TURBO</span></div></section>
   <section class="turbo"><small>TURBO — ESPAÇO <b id="regenStatus"></b></small><div><i></i><i></i><i></i></div></section>
   <section class="speed"><small>VELOCIDADE</small><strong id="speed">0</strong><span>KM/H</span></section>
 </div>

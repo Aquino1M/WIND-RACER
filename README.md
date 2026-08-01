@@ -8,7 +8,9 @@ Regata arcade 3D para navegadores, com modos solo e multiplayer.
 - Oficina com nove upgrades de cinco níveis e evolução visual.
 - Corridas com voltas, checkpoints, colisões, vácuo, turbo, obstáculos e recompensas.
 - Lobby público ou por código, lista de membros e confirmação de preparo.
-- Interface responsiva e gráficos Leve, Médio ou Alto.
+- Conta anônima, carteira protegida, canais privados e resultados validados pelo Supabase.
+- Tutorial, contrarrelógio com fantasma, campeonato, estatísticas, temporada e desafios diários.
+- Interface responsiva e gráficos Auto, Leve, Médio ou Alto.
 
 ## Executar
 
@@ -27,4 +29,4 @@ Acesse `http://127.0.0.1:8765/`. O deploy usa `vercel.json`.
 
 ## Tecnologia e dados
 
-Three.js renderiza o jogo; Supabase fornece lobby e Realtime. Progresso, compras e configurações ficam no `localStorage` do navegador. As dependências em `package.json` só são necessárias para reconstruir os arquivos de `vendor/`.
+Three.js renderiza o jogo; Supabase fornece Auth, banco, lobby, carteira e Realtime privado. O `localStorage` mantém apenas cache, configurações e o fantasma local. Rode `npm test` para validar regras de corrida, segurança e física.

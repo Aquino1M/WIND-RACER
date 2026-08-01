@@ -1,9 +1,13 @@
 {
   "dependencies": {
     "@supabase/supabase-js": "2.111.0",
-    "three": "^0.185.1"
+    "three": "0.185.1"
   },
   "devDependencies": {
-    "esbuild": "^0.25.9"
+    "esbuild": "0.25.9"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check game.js && node --check security.js && node --check race-rules.js && node --check physics.js && node --check performance.js && node --check progression.js && node --check audio-engine.js"
   }
 }

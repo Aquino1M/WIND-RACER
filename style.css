@@ -16,3 +16,23 @@
 @media(max-width:900px){.garage-body{grid-template-columns:1fr}.boat-preview{position:relative}.garage-body .boat-grid{grid-template-columns:repeat(2,1fr)}}
 .mobile-controls{display:none;position:fixed;left:0;right:0;bottom:max(15px,env(safe-area-inset-bottom));z-index:15;justify-content:space-between;align-items:end;padding:0 18px;pointer-events:none}.mobile-controls button{pointer-events:auto;width:82px;height:82px;margin:0;border-radius:50%;clip-path:none;padding:0;background:#09283edb;color:#eaffff;border:2px solid #67ead5;box-shadow:0 5px 0 #04121f,0 0 20px #17cdb85c;font-size:37px;touch-action:none;user-select:none;-webkit-user-select:none}.mobile-controls button:active,.mobile-controls button.pressed{transform:translateY(4px);box-shadow:0 1px 0 #04121f;background:#4de6cb;color:#062033}.mobile-controls .touch-turbo{width:70px;height:70px;background:#49315fdd;border-color:#fff36d;color:#fff36d;font-size:27px}.mobile-controls .touch-turbo small{display:block;font-size:10px;letter-spacing:.08em}
 @media(max-width:760px),(pointer:coarse){.mobile-controls:not(.hidden){display:flex}.turbo{bottom:112px;left:8px;transform:scale(.62);transform-origin:bottom left}.command-hud{bottom:174px;left:8px;transform:scale(.62);transform-origin:bottom left}.desktop-command{display:none!important}.mobile-command{display:flex!important}.speed{bottom:112px;right:8px;transform:scale(.62);transform-origin:bottom right}.draft-hud{bottom:120px;transform:translateX(-50%) scale(.7)}.checkpoint-hud{left:18px;top:105px;transform:scale(.75);transform-origin:top left}.coin-hud{left:18px;top:75px;transform:scale(.75);transform-origin:top left}.race-card{transform:scale(.65);transform-origin:top left;left:8px;top:8px}.mini{transform:scale(.58);transform-origin:top right;right:8px;top:8px}.panel.main-panel{max-height:96vh;overflow:auto}.settings-row{flex-wrap:wrap}.controls{font-size:12px}}
+@media(max-width:600px){
+  .panel.garage,.panel.upgrades{box-sizing:border-box;left:8px;right:8px;top:8px;bottom:8px;transform:none;width:auto;max-width:none;max-height:none;padding:16px 14px calc(16px + env(safe-area-inset-bottom));overflow-x:hidden;overflow-y:auto;clip-path:none;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+  .garage-head{position:relative;display:flex;align-items:center;gap:8px;padding-right:0;margin-bottom:10px}
+  .garage-head>div:first-child{min-width:0;flex:1}
+  .garage-head .eyebrow{font-size:10px;letter-spacing:.2em}
+  .panel.garage h2,.panel.upgrades h2{font-size:clamp(27px,9vw,39px);line-height:1;margin:4px 0;text-shadow:3px 3px 0 #e63158}
+  .garage-head .wallet{position:static;flex:0 0 auto;padding:7px 8px;font-size:10px;letter-spacing:.08em}
+  .garage-head .wallet b{font-size:18px}
+  .upgrade-boat{font-size:19px;margin:8px 0 12px}
+  .upgrade-grid{gap:10px}
+  .upgrade-card{padding:13px 10px}
+  .upgrade-card .ico{font-size:34px}
+  .upgrade-card h3{font-size:21px}
+  .upgrade-card p{min-height:0;margin:6px 0 10px;font-size:12px}
+  .upgrade-card button{min-height:44px;margin:11px 0 3px;touch-action:manipulation}
+  .panel.garage>.secondary,.panel.upgrades>.secondary{position:sticky;bottom:0;z-index:3;width:100%;min-height:48px;margin:14px 0 0;background:#17344bf2;backdrop-filter:blur(8px)}
+  .garage-body{gap:12px}
+  .garage-body .boat-grid{grid-template-columns:1fr;gap:10px}
+  .boat-preview canvas{height:210px}
+}

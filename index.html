@@ -18,6 +18,7 @@
   <section class="race-card"><strong id="position">4º</strong><div><small>VOLTA</small><b id="lap">1 / 3</b><em id="time">00:00.0</em></div></section>
   <section class="coin-hud">🪙 <b id="raceCoins">0</b></section>
   <section class="checkpoint-hud">CHECKPOINT <b id="checkpoint">1 / 11</b></section>
+  <section id="windHud" class="wind-hud"><b>CORRENTE DE VENTO</b><span>ENTRE NA FAIXA DOURADA</span></section>
   <section id="draftHud" class="draft-hud">VÁCUO <i></i><span>ENTRE NA ESTEIRA</span></section>
   <section class="mini"><canvas id="map" width="180" height="130"></canvas><small>PERCURSO</small></section><section class="rank" id="rank"></section>
   <section class="gps-hud"><span id="gpsArrow">▲</span><small>PRÓXIMO CHECKPOINT</small></section>
@@ -27,7 +28,7 @@
 </div>
 <div id="mobileControls" class="mobile-controls hidden"><button id="touchPause" class="touch-pause" aria-label="Pausar corrida">Ⅱ<small>PAUSA</small></button><button id="touchLeft" aria-label="Virar à esquerda">◀</button><button id="touchTurbo" class="touch-turbo" aria-label="Usar turbo">⚡<small>TURBO</small></button><button id="touchRight" aria-label="Virar à direita">▶</button></div>
 <div id="pause" class="panel pause hidden"><p class="eyebrow">CORRIDA PAUSADA</p><h2>PAUSADO</h2><button id="resume">CONTINUAR</button><button id="quit" class="secondary">VOLTAR AO MENU</button></div>
-<div id="result" class="panel hidden"><p class="eyebrow">REGATA CONCLUÍDA</p><h2 id="resultTitle">1º LUGAR</h2><p id="resultTime"></p><p class="reward" id="resultCoins"></p><button id="again">CORRER NOVAMENTE</button><button id="resultMenu" class="secondary">MENU</button></div>
+<div id="result" class="panel hidden"><p class="eyebrow">REGATA CONCLUÍDA</p><h2 id="resultTitle">1º LUGAR</h2><p id="resultTime"></p><div id="resultRank" class="result-rank"></div><p class="reward" id="resultCoins"></p><button id="again">CORRER NOVAMENTE</button><button id="resultMenu" class="secondary">MENU</button></div>
 <div id="tutorial" class="panel info-panel hidden"><p class="eyebrow">ESCOLA DE VELA</p><h2>TUTORIAL RÁPIDO</h2><ol><li>Siga a seta e passe pelos checkpoints na ordem.</li><li>Use as boias para identificar os limites da pista.</li><li>Entre na esteira do rival para ganhar vácuo.</li><li>Guarde o turbo para retas e ultrapassagens.</li><li>Barcos pesados resistem melhor às colisões.</li></ol><button id="tutorialStart">TREINAR AGORA</button><button id="tutorialClose" class="secondary">FECHAR</button></div>
 <div id="progression" class="panel info-panel hidden"><p class="eyebrow">CENTRAL DO PILOTO</p><h2>CARREIRA</h2><div id="seasonInfo" class="season-info"></div><div id="statsInfo" class="stats-info"></div><h3>DESAFIOS DIÁRIOS</h3><div id="dailyChallenges" class="challenge-list"></div><button id="progressClose" class="secondary">VOLTAR</button></div>
 <script src="vendor/three.global.min.js"></script><script src="vendor/supabase.global.min.js"></script><script src="security.js"></script><script src="race-rules.js"></script><script src="physics.js"></script><script src="upgrade-system.js"></script><script src="performance.js"></script><script src="progression.js"></script><script src="audio-engine.js"></script><script src="game.js"></script></body></html>

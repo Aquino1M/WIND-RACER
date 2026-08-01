@@ -80,13 +80,18 @@
 
   function validPacket(packet) {
     if (!packet || typeof packet !== 'object' || Array.isArray(packet)) return false;
-    if (!['start', 'state', 'snapshot', 'coin', 'chest', 'coinAward', 'chestAward'].includes(packet.type)) return false;
+    if (!['start', 'state', 'snapshot', 'finishResult', 'coin', 'chest', 'coinAward', 'chestAward'].includes(packet.type)) return false;
     if (typeof packet.id !== 'string' || packet.id.length > 80) return false;
     if (packet.type === 'state' || packet.type === 'snapshot') {
       const numbers = ['x', 'z', 'a', 'spd', 'cp', 'lap', 'score'];
       if (numbers.some((key) => !Number.isFinite(packet[key]))) return false;
       if (Math.abs(packet.x) > 3000 || Math.abs(packet.z) > 3000 || Math.abs(packet.spd) > 150) return false;
       if (packet.cp < 0 || packet.cp > 20 || packet.lap < 1 || packet.lap > 10) return false;
+    }
+    if (packet.type === 'finishResult') {
+      if (typeof packet.playerId !== 'string' || packet.playerId.length > 80) return false;
+      if (!Number.isInteger(packet.finishOrder) || packet.finishOrder < 1 || packet.finishOrder > 12) return false;
+      if (!Number.isFinite(packet.score)) return false;
     }
     return true;
   }

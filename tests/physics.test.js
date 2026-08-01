@@ -14,3 +14,14 @@ test('avanço aplica inércia e vento sem gerar valores inválidos', () => {
   assert.ok(Number.isFinite(motion.dx) && Number.isFinite(motion.dz));
   assert.ok(motion.dz > 0);
 });
+
+test('corrente de vento acelera dentro da faixa e respeita o alinhamento', () => {
+  const current = { x: 0, z: 0, a: 0, length: 100, width: 12, strength: 14 };
+  const aligned = physics.windCurrent({ x: 2, z: 10, a: 0 }, current);
+  const reverse = physics.windCurrent({ x: 2, z: 10, a: Math.PI }, current);
+  const outside = physics.windCurrent({ x: 30, z: 10, a: 0 }, current);
+  assert.equal(aligned.inside, true);
+  assert.ok(aligned.boost > reverse.boost);
+  assert.equal(outside.inside, false);
+  assert.equal(outside.boost, 0);
+});

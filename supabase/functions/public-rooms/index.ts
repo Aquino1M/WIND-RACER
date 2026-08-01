@@ -108,10 +108,24 @@ Deno.serve(async (req) => {
     if (action === "heartbeat") {
       const { data: room } = await service.from("game_rooms")
         .select("host_user_id").eq("code", code).maybeSingle();
-      if (!room || room.host_user_id !== auth.user.id) return json(req, { error: "Sala não autorizada" }, 403);
+      if (!room) return json(req, { error: "Sala não encontrada" }, 404);
+      const { data: member } = await service.from("room_members")
+        .select("user_id").eq("room_code", code).eq("user_id", auth.user.id).maybeSingle();
+      if (!member) return json(req, { error: "Sala não autorizada" }, 403);
       const timestamp = new Date().toISOString();
-      await service.from("game_rooms").update({ last_seen: timestamp }).eq("code", code).eq("host_user_id", auth.user.id);
       await service.from("room_members").update({ last_seen: timestamp }).eq("room_code", code).eq("user_id", auth.user.id);
+      if (room.host_user_id === auth.user.id) {
+        await service.from("game_rooms").update({ last_seen: timestamp }).eq("code", code).eq("host_user_id", auth.user.id);
+      }
+      return json(req, { ok: true });
+    }
+
+    if (action === "unpublish") {
+      const { data: room } = await service.from("game_rooms")
+        .select("host_user_id").eq("code", code).maybeSingle();
+      if (!room || room.host_user_id !== auth.user.id) return json(req, { error: "Sala não autorizada" }, 403);
+      await service.from("game_rooms").update({ is_public: false, last_seen: new Date().toISOString() })
+        .eq("code", code).eq("host_user_id", auth.user.id);
       return json(req, { ok: true });
     }
 

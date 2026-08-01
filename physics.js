@@ -37,5 +37,12 @@
     const pa = profile(a.spec?.type), pb = profile(b.spec?.type), total = pa.weight + pb.weight;
     return { a: Math.max(0.58, 1 - 0.3 * pb.weight / total), b: Math.max(0.58, 1 - 0.3 * pa.weight / total) };
   }
-  return Object.freeze({ profile, advance, collisionSpeed, boatCollision });
+  function windCurrent(racer, current) {
+    const dx = racer.x - current.x, dz = racer.z - current.z;
+    const fx = Math.sin(current.a), fz = Math.cos(current.a), along = dx * fx + dz * fz;
+    const side = dx * fz - dz * fx, aligned = Math.max(0, Math.cos(racer.a - current.a));
+    const inside = Math.abs(along) <= current.length / 2 && Math.abs(side) <= current.width;
+    return { inside, aligned, boost: inside ? current.strength * (0.35 + aligned * 0.65) : 0, lateral: inside ? -side * 0.08 : 0 };
+  }
+  return Object.freeze({ profile, advance, collisionSpeed, boatCollision, windCurrent });
 });

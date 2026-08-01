@@ -30,3 +30,5 @@ Acesse `http://127.0.0.1:8765/`. O deploy usa `vercel.json`.
 ## Tecnologia e dados
 
 Three.js renderiza o jogo; Supabase fornece Auth, banco, lobby, carteira e Realtime privado. O `localStorage` mantém apenas cache, configurações e o fantasma local. Rode `npm test` para validar regras de corrida, segurança e física.
+
+O backend reproduzível está em `supabase/migrations/` e a Edge Function do lobby em `supabase/functions/public-rooms/`.
